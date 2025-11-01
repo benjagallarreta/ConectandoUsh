@@ -1,0 +1,126 @@
+/* === Estilos generales del header/nav === */
+.navbar-container {
+  background-color: #2b2b2b;   /* gris oscuro como el de tu captura */
+  color: #ffffff;
+  padding: 5px 5px 10px;     /* más aire abajo para que entren los botones */
+  display: flex;
+  flex-direction: column;      /* primero fila superior (logo + título), después botones */
+  align-items: center;
+  gap: 20px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  border: black;
+}
+
+/* === Fila superior: logo + título === */
+.navbar-logo-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Logo */
+.navbar-logo {
+  width: 240px;       /* ajustá este valor si querés más grande o más chico */
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Título al lado del logo */
+.navbar-logo-container::after {
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: #ffffff;
+  font-family: "Segoe UI", Roboto, system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+  word-spacing: 0.03em;
+}
+
+/* Pintar la última palabra 'Ushuaia' en celeste */
+.navbar-logo-container::after {
+  /* truco: no se puede estilizar solo una palabra dentro de content,
+     así que hacemos otro pseudo-elemento para resaltar "Ushuaia" */
+  position: relative;
+}
+.navbar-logo-container::after > span {
+  color: #4db0e1;
+  font-weight: 400;
+}
+
+/* Para poder colorear "Ushuaia" necesitamos un pequeño truco:
+   reemplazamos el content anterior con dos pseudo-elementos:
+   uno para el texto base y otro para la palabra destacada */
+.navbar-logo-container {
+  position: relative;
+}
+.navbar-logo-container .navbar-heading-base,
+.navbar-logo-container .navbar-heading-city {
+  font-size: 35px;
+  font-weight: 400;
+  line-height: 1.3;
+  font-family: "Segoe UI", Roboto, system-ui, sans-serif;
+  color: #ffffff;
+  text-align: center;
+  text-rendering: optimizeLegibility;
+  word-spacing: 0.03em;
+}
+.navbar-logo-container .navbar-heading-city {
+  color: #4db0e1;
+  margin-left: 8px;
+}
+
+/* === Contenedor de botones === */
+.navbar-buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* === Botones estilo pastilla con gradiente === */
+.navbar-buttons {
+  background: linear-gradient(90deg, #56a8d3 0%, #0b3ea9 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  transition: all 0.15s ease-in-out;
+  white-space: nowrap;
+}
+
+/* Hover */
+.navbar-buttons:hover {
+  filter: brightness(1.15);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Click */
+.navbar-buttons:active {
+  filter: brightness(0.95);
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* === Responsivo chico (pantallas angostas) === */
+@media (max-width: 600px) {
+  .navbar-logo {
+    width: 110px;
+  }
+
+  .navbar-heading-base,
+  .navbar-heading-city {
+    font-size: 20px;
+    line-height: 1.4;
+  }
+}

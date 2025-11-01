@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.conectandoush.ar/sitemap.xml
+Host: www.conectandoush.ar

@@ -1,0 +1,9 @@
+.us-container {
+    background-color: #2b2b2b;
+    display: flex;
+    border: black;
+}
+
+.us-description {
+    display: flex;
+}
