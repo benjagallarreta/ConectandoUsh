@@ -1,9 +1,65 @@
-.us-container {
-    background-color: #2b2b2b;
-    display: flex;
-    border: black;
+/* --- Estilos Generales (pueden ir en un CSS global o en us.css) --- */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente moderna y legible */
+    color: #cccccc; /* Un gris oscuro/blanco roto para el texto principal, ideal para fondos oscuros */
+    line-height: 1.6; /* Espaciado entre líneas, mejora la lectura */
+    background-color: #2b2b2b; /* El fondo oscuro que se ve en tus imágenes */
 }
 
+.us-container, .services-container {
+    max-width: 1000px; /* Limita el ancho del texto para que no se extienda demasiado (mejora la lectura) */
+    margin: 30px auto; /* Centra el contenido en la página y da espacio vertical */
+    padding: 0 20px; /* Pequeño padding a los lados para que no toque los bordes del navegador */
+}
+
+/* --- Estilo para la Descripción de la Empresa --- */
+
 .us-description {
-    display: flex;
+    display: block; /* Asegura que ocupe su propia línea */
+    font-size: 16px; 
+    font-weight: 300; /* Fuente ligera para un look moderno */
+    text-align: justify; /* Justifica el texto para un bloque formal y uniforme */
+    margin-bottom: 40px;
+    padding: 15px;
+    border-left: 5px solid #007bff; /* Una línea azul a la izquierda como toque de diseño */
+    background-color: #333333; /* Un fondo ligeramente más claro para destacarlo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil para un efecto de elevación */
+}
+
+/* --- Estilo para la Sección de Servicios --- */
+
+.services-container h2 {
+    color: #007bff; /* Un color de acento azul para los títulos de sección */
+    font-size: 24px;
+    border-bottom: 2px solid #555555; /* Una línea sutil debajo del título */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.services-list {
+    list-style: none; /* Remueve los puntos predeterminados */
+    padding: 0;
+}
+
+.services-list li {
+    font-size: 17px;
+    padding: 8px 0;
+    border-bottom: 1px dashed #444444; /* Línea separadora sutil */
+    
+    /* Icono personalizado para los elementos de la lista */
+    position: relative;
+    padding-left: 25px; /* Deja espacio para el icono */
+}
+
+/* Pseudo-elemento para añadir un icono (ej. un círculo azul) */
+.services-list li::before {
+    content: "•"; /* O puedes usar un ícono unicode, ej. '✓' o '►' */
+    color: #007bff; /* Color azul de acento */
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+    position: absolute;
+    left: 0;
 }

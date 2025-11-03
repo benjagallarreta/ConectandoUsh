@@ -1,0 +1,93 @@
+/* --- ESTILOS GENERALES Y CONTENEDOR --- */
+
+/* Contenedor principal del foro, centrado y con margenes */
+.forum-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #333333; /* Fondo oscuro sutil */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    color: #cccccc; /* Texto principal gris claro */
+    font-family: Arial, sans-serif;
+}
+
+.forum-container h2 {
+    color: #007bff; /* Color de acento azul */
+    border-bottom: 2px solid #555555;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+/* --- ESTILOS DEL FORMULARIO --- */
+
+#question-form label {
+    display: block; /* Cada etiqueta en su propia línea */
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Campos de texto y email */
+#question-form textarea,
+#question-form input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #555555;
+    border-radius: 4px;
+    background-color: #444444; /* Fondo de campo ligeramente más claro */
+    color: #ffffff;
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+}
+
+#question-form textarea {
+    resize: vertical; /* Permite redimensionar solo verticalmente */
+    min-height: 100px;
+}
+
+/* Botón de Enviar */
+#question-form button[type="submit"] {
+    background-color: #007bff; /* El mismo azul de acento */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+#question-form button[type="submit"]:hover {
+    background-color: #0056b3; /* Tono más oscuro al pasar el mouse */
+}
+
+/* --- ESTILOS DE LA LISTA DE PREGUNTAS (Placeholder) --- */
+
+#qa-list {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px dashed #555555; /* Separador */
+}
+
+.question-placeholder {
+    background-color: #2b2b2b; /* Fondo de la caja de la pregunta */
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border-left: 4px solid #007bff;
+}
+
+.question-placeholder p {
+    margin: 0;
+}
+
+.question-placeholder .answer-placeholder {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #3a3a3a; /* Fondo de la respuesta */
+    border-left: 3px solid #00c400; /* Borde verde para la respuesta del admin */
+    font-style: italic;
+    color: #a0a0a0;
+}

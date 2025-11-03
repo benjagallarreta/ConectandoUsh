@@ -1,0 +1,22 @@
+#footer-container {
+    background-color: #1a1a1a; /* Un color muy oscuro o negro */
+    color: #aaaaaa; /* Texto gris claro */
+    padding: 30px 20px;
+    text-align: center;
+    border-top: 1px solid #333333; /* Línea separadora sutil */
+    font-size: 14px;
+}
+
+.footer-container a {
+    color: #007bff; /* Color de acento para enlaces */
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.footer-container a:hover {
+    text-decoration: underline;
+}
+
+.footer-container p {
+    margin-bottom: 8px;
+}

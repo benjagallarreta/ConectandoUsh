@@ -1,33 +1,37 @@
-<!DOCTYPE html>
-<html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- estilos propios de la página -->
-    <link rel="stylesheet" href="../styles/us.css" />
-
-    <!-- estilos del navbar (para que salga con formato) -->
-    <link rel="stylesheet" href="../styles/navbar.css" />
-
-    <title>Sobre Nosotros</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../styles/us.css" />
+  <title>Sobre Nosotros</title>
 </head>
-<body>
 
-    <!-- ACA SE VA A MONTAR EL NAVBAR -->
+<body>
     <div id="navbar-container"></div>
 
     <div class="us-container">
         <span class="us-description">
-            Somos una empresa con más de 15 años de trayectoria en el mercado, brindando soluciones
-            y servicios a lo largo de toda la provincia. A lo largo de este tiempo, hemos trabajado con
-            una amplia variedad de clientes que confían en nuestra experiencia y compromiso. Entre ellos
-            se destacan Insumo Industrial y Promat, Casa Seila, Todo Austral, Kercial y Hogar Dormimundo,
-            Estudio CID Contable, Estudio JDB Contable, Hotel 1810, Hotel Cormoranes, entre otros.
+            Somos una empresa con más de 15 años de trayectoria en el mercado,
+            brindando soluciones y servicios a lo largo de toda la provincia. A lo
+            largo de este tiempo, hemos trabajado con una amplia variedad de clientes
+            que confían en nuestra experiencia y compromiso. Entre ellos se destacan
+            Insumo Industrial y Promat, Casa Seila, Todo Austral, Kercial y Hogar
+            Dormimundo, Estudio CID Contable, Estudio JDB Contable, Hotel 1810, Hotel
+            Cormoranes, entre otros.
         </span>
     </div>
 
-    <!-- IMPORTANTE: el script va al final -->
-    <script src="../scripts/load_navbar.js"></script>
+    <div class="services-container">
+        <h2>Qué hacemos:</h2>
+        <ul class="services-list">
+            <li>Servicios informáticos para empresas (B2B)</li>
+            <li>Servidores Windows, Linux y Proxmox</li>
+            <li>Configuración de redes y grandes redes</li>
+            <li>Programaciones y sistemas de facturación</li>
+            <li>Internet, módems, routers</li>
+            <li>Enlaces punto a punto y multipunto</li>
+        </ul>
+    </div>
+    
+    <div id="footer-container"></div>
+    <script src="../scripts/load_base.js"></script>
 </body>
-</html>

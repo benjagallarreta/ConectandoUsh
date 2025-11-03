@@ -1,0 +1,22 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../styles/forum.css">
+<body>
+    <div id="navbar-container"></div>
+    <div class="forum-container">
+        <h2>Deja tu Pregunta</h2>
+        <form id="question-form" action="/submit-question" method="POST">
+            <label for="user-question">Escribe tu pregunta:</label>
+            <textarea id="user-question" name="question" required></textarea>
+            
+            <label for="user-email">Tu Email (Opcional):</label>
+            <input type="email" id="user-email" name="email">
+            
+            <button type="submit">Enviar Pregunta</button>
+        </form>
+        
+        <div id="qa-list">
+        </div>
+    </div>
+    <div id="footer-container"></div>
+    <script src="../scripts/load_base.js"></script>
+</body>

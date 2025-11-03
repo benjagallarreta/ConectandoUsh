@@ -1,9 +1,0 @@
-/* TEAM */
-Developer: Conectando Informatica
-Contact: conectandoush@hotmail.com, conectandoush@gmail.com
-From: Ushuaia, Tierra del Fuego, Argentina
-
-/* SITE */
-Last update: 2025-10-29
-Language: es-AR
-Standards: HTML5, CSS3, Schema.org
