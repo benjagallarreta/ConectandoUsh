@@ -1,0 +1,80 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #cccccc;
+    background-color: #e9e9e9;
+}
+
+.clients-container {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    
+    gap: 30px; 
+    max-width: 900px; 
+    margin: 50px auto; 
+    padding: 0 20px; 
+}
+
+
+.logo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+    aspect-ratio: 1 / 1; 
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    width: calc(25% - 22.5px);
+}
+
+.logo-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.logo-item a {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.logo-item img {
+    max-width: 80%;
+    max-height: 80%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.clients-text {
+    /* 1. Tipografía y Estilo General */
+    font-family: cursive; /* Simplificar a una fuente web segura */
+    font-size: 1.125rem; /* Usar 'rem' para escalabilidad (18px = 1.125rem) */
+    font-weight: 500; /* Añadir peso semi-negrita para mejor legibilidad */
+    line-height: 1.6; /* Mejorar el espaciado entre líneas para facilitar la lectura */
+    color: #333333; /* Usar un gris oscuro en lugar de negro puro (#000) para suavizar */
+
+    /* 2. Centrado Horizontal y Layout */
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente (si es un solo bloque de texto) */
+    text-align: center; /* Centra el texto DENTRO de los elementos (lo más importante para el texto) */
+    
+    /* 3. Margen y Espaciado (Opcional, pero recomendado) */
+    padding-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+    .logo-item {
+        width: 100%; 
+        padding: 15px; 
+    }
+}
