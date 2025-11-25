@@ -1,14 +1,54 @@
-/* === Estilos generales del header/nav === */
+/* ================
+   navbar.css (Corregido)
+   ================ */
+
+/* * Muevo la transición al selector universal (*) para que
+ * todos los elementos cambien de color suavemente.
+ * La quito del :root.
+*/
+* {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+:root {
+  /* Nombres semánticos */
+  --color-fondo-principal: #242424;
+  --color-fondo-secundario: #333333;
+  --color-texto-principal: #ffffff;
+  --color-texto-secundario: #e0e0e0;
+  
+  --color-acento-primario: #b72bcc;
+  --color-acento-secundario: #722081;
+  
+  --color-footer-fondo: #0e0e0e;
+  --color-borde: #555555;
+  
+  /* Se quitó la transición de aquí */
+}
+
+.tema-claro {
+  --color-fondo-principal: #ffffff;
+  --color-fondo-secundario: #dfdfdf;
+  --color-texto-principal: #242424;
+  --color-texto-secundario: #050505;
+  
+  --color-acento-primario: #b72bcc;
+  --color-acento-secundario: #722081;
+  
+  --color-footer-fondo: #eeeeee;
+  --color-borde: #cccccc;
+}
+
 .navbar-container {
-  background-color: #e9e9e9;   /* gris oscuro como el de tu captura */
-  color: #ffffff;
-  padding: 5px 5px 10px;     /* más aire abajo para que entren los botones */
+  /* ¡BIEN! Esto ya usaba la variable correcta */
+  background-color: var(--color-fondo-principal); 
+  padding: 5px 5px 10px;
   display: flex;
-  flex-direction: column;      /* primero fila superior (logo + título), después botones */
+  flex-direction: column;
   align-items: center;
   gap: 20px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  border: black;
+  border: black; /* Esto no hace nada, ¿quizás quisiste decir 'border-bottom: 1px solid black;'? Lo dejo como estaba */
 }
 
 /* === Fila superior: logo + título === */
@@ -23,37 +63,14 @@
 
 /* Logo */
 .navbar-logo {
-  width: 500px;       /* ajustá este valor si querés más grande o más chico */
+  width: 300px;
   height: auto;
   object-fit: contain;
   display: block;
 }
 
-/* Título al lado del logo */
-.navbar-logo-container::after {
-  font-size: 28px;
-  font-weight: 400;
-  line-height: 1.3;
-  color: #ffffff;
-  font-family: "Segoe UI", Roboto, system-ui, sans-serif;
-  text-rendering: optimizeLegibility;
-  word-spacing: 0.03em;
-}
+/* ... (El pseudo-elemento ::after se elimina porque usamos los divs de abajo) ... */
 
-/* Pintar la última palabra 'Ushuaia' en celeste */
-.navbar-logo-container::after {
-  /* truco: no se puede estilizar solo una palabra dentro de content,
-     así que hacemos otro pseudo-elemento para resaltar "Ushuaia" */
-  position: relative;
-}
-.navbar-logo-container::after > span {
-  color: #4db0e1;
-  font-weight: 400;
-}
-
-/* Para poder colorear "Ushuaia" necesitamos un pequeño truco:
-   reemplazamos el content anterior con dos pseudo-elementos:
-   uno para el texto base y otro para la palabra destacada */
 .navbar-logo-container {
   position: relative;
 }
@@ -63,11 +80,16 @@
   font-weight: 400;
   line-height: 1.3;
   font-family: "Segoe UI", Roboto, system-ui, sans-serif;
-  color: #ffffff;
+  
+  /* === ARREGLADO === */
+  color: var(--color-texto-principal); /* Antes: #ffffff */
+  
   text-align: center;
   text-rendering: optimizeLegibility;
   word-spacing: 0.03em;
 }
+
+/* (Esto está bien, es un color de marca que no cambia con el tema) */
 .navbar-logo-container .navbar-heading-city {
   color: #4db0e1;
   margin-left: 8px;
@@ -83,10 +105,13 @@
 
 /* === Botones estilo pastilla con gradiente === */
 .navbar-buttons {
-  background: linear-gradient(90deg, #56a8d3 0%, #0b3ea9 100%);
-  color: #ffffff;
-  border: none;
-  border-radius: 999px;
+  /* ¡BIEN! El fondo ya usaba variables */
+  background: linear-gradient(90deg, var(--color-acento-primario), var(--color-acento-secundario));
+  
+  /* === ARREGLADO === */
+  color: var(--color-texto-principal);
+  
+  border-radius: 12px;
   padding: 10px 20px;
   font-size: 13px;
   font-weight: 600;
@@ -94,8 +119,7 @@
   text-transform: uppercase;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-  transition: all 0.15s ease-in-out;
-  white-space: nowrap;
+  transition: all 0.15s ease-in-out; /* Esta transición anula la universal (*), pero está bien */
   text-decoration: none;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }

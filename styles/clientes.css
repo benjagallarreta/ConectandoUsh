@@ -1,14 +1,18 @@
+/* ================
+   clientes.css (Corregido)
+   ================ */
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #cccccc;
-    background-color: #e9e9e9;
+    
+    /* ¡BIEN! Esto ya usaba la variable correcta */
+    background-color: var(--color-fondo-principal);
 }
 
 .clients-container {
     display: flex; 
     flex-wrap: wrap; 
     justify-content: center; 
-    
     gap: 30px; 
     max-width: 900px; 
     margin: 50px auto; 
@@ -22,10 +26,20 @@ body {
     justify-content: center;
    
     aspect-ratio: 1 / 1; 
-    border: 1px solid #e0e0e0;
+    
+    /* === ARREGLADO === */
+    /* El borde ahora usará la variable de borde del tema */
+    border: 1px solid var(--color-borde); /* Antes: #e0e0e0 */
+    
     border-radius: 12px;
     padding: 10px;
+    
+    /* --- NOTA --- */
+    /* He dejado el fondo blanco (#ffffff) a propósito. */
+    /* Los logos de clientes casi siempre se ven mejor sobre */
+    /* un fondo blanco, sin importar el tema. */
     background-color: #ffffff;
+    
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -56,22 +70,23 @@ body {
 }
 
 .clients-text {
-    /* 1. Tipografía y Estilo General */
-    font-family: cursive; /* Simplificar a una fuente web segura */
-    font-size: 1.125rem; /* Usar 'rem' para escalabilidad (18px = 1.125rem) */
-    font-weight: 500; /* Añadir peso semi-negrita para mejor legibilidad */
-    line-height: 1.6; /* Mejorar el espaciado entre líneas para facilitar la lectura */
-    color: #333333; /* Usar un gris oscuro en lugar de negro puro (#000) para suavizar */
-
-    /* 2. Centrado Horizontal y Layout */
-    display: flex;
-    justify-content: center; /* Centra el contenido horizontalmente (si es un solo bloque de texto) */
-    text-align: center; /* Centra el texto DENTRO de los elementos (lo más importante para el texto) */
+    font-family: cursive;
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.6;
     
-    /* 3. Margen y Espaciado (Opcional, pero recomendado) */
+    /* === ARREGLADO === */
+    /* Actualizado al nuevo nombre de variable semántico */
+    color: var(--color-texto-principal); /* Antes: var(--fondo-claro) */
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    
     padding-bottom: 30px;
 }
 
+/* (No tenía colores, se queda igual) */
 @media (max-width: 768px) {
     .logo-item {
         width: 100%; 

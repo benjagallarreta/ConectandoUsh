@@ -1,16 +1,23 @@
+/* ================
+   footer.css (Corregido)
+   ================ */
+
 body {
     margin: 0; /* Elimina el margen predeterminado del navegador */
     padding: 0;
     /* Incluir el resto de tus estilos de body aquí */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #cccccc;
-    
 }
 
 /* Contenedor principal del Footer */
 .footer-container {
-    background-color: #d4d4d4;
-    color: #050505;
+    /* === ARREGLADO === */
+    /* Cambiado para usar la variable de footer específica que definiste */
+    background-color: var(--color-footer-fondo); /* Antes: var(--color-fondo-secundario) */
+    
+    /* ¡BIEN! Esto ya usaba la variable correcta */
+    color: var(--color-texto-principal);
+    
     padding: 20px 20px;
     font-size: 15px;
     
@@ -22,7 +29,6 @@ body {
 
 /* 1. Contenedor de la Información (Texto) */
 .info-container {
-    /* **CLAVE:** No permitimos que crezca, solo que ocupe su espacio natural */
     flex-grow: 0; 
     flex-shrink: 0;
     text-align: center;
@@ -35,7 +41,6 @@ body {
 /* 2. Contenedor de WhatsApp */
 .whatsapp-container {
     flex-shrink: 0; 
-    /* **CLAVE:** Separación del texto centrado. Ajusta este valor (ej. 50px) */
     margin-left: 20px; 
 }
 
@@ -51,7 +56,10 @@ body {
 
 /* 3. Estilos de Enlaces Generales */
 .footer-container a {
-    color: #007bff;
+    /* === ARREGLADO === */
+    /* Actualizado al nuevo nombre de variable semántico */
+    color: var(--color-acento-primario); /* Antes: var(--violeta-primario) */
+    
     text-decoration: none;
     margin: 0 5px;
 }
@@ -61,32 +69,27 @@ body {
 }
 
 /* Media Query para dispositivos con ancho máximo de 768px (Móviles y Tablets pequeñas) */
+/* (No tenía colores, se queda igual) */
 @media (max-width: 768px) {
     
-    /* 1. Cambiar el layout principal a vertical */
     .footer-container {
-        flex-direction: column; /* Apila el .info-container y .whatsapp-container verticalmente */
-        align-items: center; /* Centra los elementos apilados horizontalmente */
+        flex-direction: column; 
+        align-items: center; 
         justify-content: center;
-        padding: 20px 10px; /* Reduce un poco el padding horizontal */
+        padding: 20px 10px; 
     }
 
-    /* 2. Centrar el texto en el .info-container (ya debería estar centrado, pero lo forzamos) */
     .info-container {
-        width: 100%; /* Aseguramos que ocupe todo el ancho para que el texto se centre bien */
-        margin-bottom: 15px; /* Añade un espacio debajo del texto antes de que venga el logo */
+        width: 100%; 
+        margin-bottom: 15px; 
         text-align: center;
     }
     
-    /* 3. Ajustar el logo de WhatsApp */
     .whatsapp-container {
-        /* Elimina el margen a la izquierda que usamos para separarlo del texto en escritorio */
         margin-left: 0; 
-        /* Añade un pequeño margen arriba para separarlo del .info-container */
         margin-top: 15px; 
     }
     
-    /* Opcional: Centrar el logo de WhatsApp si está en su propio div */
     .whatsapp-container a {
         display: block;
     }

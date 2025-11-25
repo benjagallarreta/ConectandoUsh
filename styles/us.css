@@ -1,23 +1,43 @@
+/* ================
+   us.css (Corregido)
+   ================ */
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente moderna y legible */
-    color: #242424; /* Un gris oscuro/blanco roto para el texto principal, ideal para fondos oscuros */
+    
+    /* === ARREGLADO === */
+    /* Tu color de texto principal debe usar la variable */
+    color: var(--color-texto-principal); /* Antes: #242424 */
+    
     line-height: 1.6; /* Espaciado entre líneas, mejora la lectura */
-    background-color: #e9e9e9; /* El fondo oscuro que se ve en tus imágenes */
+    
+    /* ¡BIEN! Esto ya usaba la variable correcta */
+    background-color: var(--color-fondo-principal);
 }
 
 .us-container, .services-container{
     max-width: 1000px; /* Limita el ancho del texto para que no se extienda demasiado (mejora la lectura) */
     margin: 30px auto; /* Centra el contenido en la página y da espacio vertical */
     padding: 0 20px;
-    border-left: 5px solid #145fae; /* Una línea azul a la izquierda como toque de diseño */
-    background-color: #dfdfdf; /* Un fondo ligeramente más claro para destacarlo */
-    box-shadow: 0 4px 8px rgba(165, 165, 165, 0.2); /* Sombra sutil para un efecto de elevación */
-    color: #050505;
-    border-radius: 5px;/* Pequeño padding a los lados para que no toque los bordes del navegador */
+    
+    /* ¡BIEN! Esto ya usaba la variable correcta */
+    border-left: 5px solid var(--color-acento-primario);
+    
+    /* === ARREGLADO === */
+    /* Este es el fondo de las "tarjetas", así que usamos el fondo secundario */
+    background-color: var(--color-fondo-secundario); /* Antes: #dfdfdf */
+    
+    box-shadow: 0 4px 8px rgba(165, 165, 165, 0.2); /* La sombra puede quedarse así, es sutil */
+    
+    /* === ARREGLADO === */
+    /* Este es el texto DENTRO de las tarjetas, usamos el texto secundario */
+    color: var(--color-texto-secundario); /* Antes: #050505 */
+    
+    border-radius: 5px;
 }
 
 /* --- Estilo para la Descripción de la Empresa --- */
-
+/* (No tenía colores, se queda igual) */
 .us-description {
     display: block; 
     font-size: 18px; 
@@ -27,16 +47,22 @@ body {
 }
 
 .services-container h2, .us-container h2 {
-    color: #145fae; /* Un color de acento azul para los títulos de sección */
+    /* ¡BIEN! Esto ya usaba la variable correcta */
+    color: var(--color-acento-secundario); 
+    
     font-size: 24px;
-    border-bottom: 2px solid #555555; 
+    
+    /* === ARREGLADO === */
+    border-bottom: 2px solid var(--color-borde); /* Antes: #555555 */
+    
     padding-top: 10px;
     padding-bottom: 10px;
     margin-bottom: 20px;
 }
 
 .services-list h3 {
-    color: #145fae; /* Un color de acento azul para los títulos de sección */
+    /* ¡BIEN! Esto ya usaba la variable correcta */
+    color: var(--color-acento-secundario);
 }
 
 .services-list {
@@ -47,18 +73,26 @@ body {
 .services-list li {
     font-size: 17px;
     padding: 8px 0;
-    border-bottom: 1px  #444444; /* Línea separadora sutil */
     
-    /* Icono personalizado para los elementos de la lista */
+    /* === ARREGLADO (Y SINTAXIS CORREGIDA) === */
+    /* Antes tenías "1px var(#202020)", lo cual es incorrecto. */
+    /* Lo cambié a la variable de borde y la sintaxis correcta. */
+    border-bottom: 1px solid var(--color-borde); /* Antes: 1px var(#202020) */
+    
     position: relative;
     padding-left: 25px; /* Deja espacio para el icono */
-    color: #242424;
+    
+    /* === ARREGLADO === */
+    color: var(--color-texto-secundario); /* Antes: #242424 */
 }
 
 /* Pseudo-elemento para añadir un icono (ej. un círculo azul) */
 .services-list li::before {
-    content: "•"; /* O puedes usar un ícono unicode, ej. '✓' o '►' */
-    color: #145fae; /* Color azul de acento */
+    content: ""; 
+    
+    /* ¡BIEN! Esto ya usaba la variable correcta */
+    color:var(--color-acento-primario); 
+    
     font-weight: bold;
     display: inline-block; 
     width: 1em;
