@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Admin - ConectandoUsh</title>
+    <link rel="icon" href="../assets/conectando-logo.png">
+    
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/navbar.css">
+    <link rel="stylesheet" href="../styles/admin.css">
+</head>
+<body>
+    <div id="navbar-container"></div>
+
+    <section class="admin-page">
+        <div class="container-small">
+            <div class="section-header" style="margin-top: 6rem;">
+                <h1>🔐 Panel de Administración</h1>
+                <div class="section-divider"></div>
+            </div>
+
+            <!-- Login -->
+            <div id="admin-login" class="admin-card">
+                <h2>Iniciar Sesión</h2>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="admin-email" placeholder="admin@conectandoush.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Contraseña</label>
+                        <input type="password" id="admin-password" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Iniciar Sesión</button>
+                </form>
+            </div>
+
+            <!-- Panel Admin (oculto hasta login) -->
+            <div id="admin-panel" class="admin-panel" style="display: none;">
+                <div class="admin-header">
+                    <h2>Preguntas Pendientes</h2>
+                    <button id="logout-btn" class="btn btn-secondary">Cerrar Sesión</button>
+                </div>
+                
+                <div id="admin-questions-list"></div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    
+    <script src="../scripts/firebase-config.js"></script>
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/theme.js"></script>
+    <script src="../scripts/navbar.js"></script>
+    <script src="../scripts/admin.js"></script>
+</body>
+</html>

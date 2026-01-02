@@ -1,0 +1,204 @@
+/* ========================================
+   COMMUNITY SECTION
+   ======================================== */
+
+.community-section {
+    padding: 5rem 0;
+    background-color: var(--color-bg-secondary);
+}
+
+/* Form Card */
+.community-form-card {
+    background-color: var(--color-bg-primary);
+    border: 1px solid var(--color-border);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    box-shadow: 0 8px 24px var(--color-shadow);
+    margin-bottom: 3rem;
+}
+
+.form-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 1.5rem;
+}
+
+.form-title svg {
+    color: var(--color-primary);
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(183, 43, 204, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Questions List */
+.questions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.question-card {
+    background-color: var(--color-bg-primary);
+    border: 1px solid var(--color-border);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px var(--color-shadow);
+    transition: box-shadow 0.3s ease;
+}
+
+.question-card:hover {
+    box-shadow: 0 8px 24px var(--color-shadow);
+}
+
+.question-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.question-user {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.user-avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+.question-date {
+    font-size: 0.875rem;
+    color: var(--color-text-tertiary);
+}
+
+.like-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 9999px;
+    background: rgba(183, 43, 204, 0.1);
+    color: var(--color-primary);
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+}
+
+.like-button:hover {
+    background: rgba(183, 43, 204, 0.2);
+    transform: scale(1.05);
+}
+
+.question-text {
+    font-size: 1.125rem;
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* Answer */
+.question-answer {
+    padding: 1rem 1rem 1rem 1.5rem;
+    border-left: 4px solid #10b981;
+    background: rgba(16, 185, 129, 0.05);
+    border-radius: 0 0.75rem 0.75rem 0;
+}
+
+.answer-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #10b981;
+    margin-bottom: 0.5rem;
+}
+
+.answer-header svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+.answer-text {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+/* Respuesta oficial destacada */
+.official-answer {
+    background: linear-gradient(135deg, rgba(183, 43, 204, 0.05), rgba(77, 176, 225, 0.05));
+    border-left-color: var(--color-primary) !important;
+    border-left-width: 4px;
+}
+
+.official-badge {
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.community-page {
+    min-height: 100vh;
+    padding: 2rem 0;
+    background-color: var(--color-bg-secondary);
+}

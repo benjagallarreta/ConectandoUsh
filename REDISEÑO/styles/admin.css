@@ -1,0 +1,86 @@
+.admin-page {
+    min-height: 100vh;
+    padding: 2rem 0;
+    background-color: var(--color-bg-secondary);
+}
+
+.admin-card {
+    background-color: var(--color-bg-primary);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px var(--color-shadow);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.admin-panel {
+    background-color: var(--color-bg-primary);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px var(--color-shadow);
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.admin-question-card {
+    background-color: var(--color-bg-secondary);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--color-border);
+}
+
+.admin-q-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+}
+
+.admin-date {
+    color: var(--color-text-tertiary);
+    font-size: 0.875rem;
+}
+
+.admin-q-text {
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+}
+
+.admin-answer-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    margin-bottom: 0.75rem;
+    min-height: 80px;
+    font-family: inherit;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+}
+
+.admin-answer-box {
+    background-color: rgba(16, 185, 129, 0.1);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border-left: 4px solid #10b981;
+    margin-bottom: 1rem;
+}
+
+.btn-delete {
+    background-color: #ef4444;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-delete:hover {
+    background-color: #dc2626;
+}
