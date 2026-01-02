@@ -202,3 +202,78 @@
     padding: 2rem 0;
     background-color: var(--color-bg-secondary);
 }
+
+
+/* Loading y estados */
+.loading {
+    text-align: center;
+    padding: 3rem;
+    color: var(--color-text-secondary);
+    font-size: 1.125rem;
+}
+
+.no-questions {
+    text-align: center;
+    padding: 3rem;
+    background-color: var(--color-bg-primary);
+    border: 2px dashed var(--color-border);
+    border-radius: 1rem;
+}
+
+.no-questions p {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    margin: 0;
+}
+
+.error-message {
+    text-align: center;
+    padding: 2rem;
+    background-color: #fee;
+    border: 2px solid #fcc;
+    border-radius: 1rem;
+    color: #c33;
+}
+
+/* Spinner de carga */
+.spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Notificaciones */
+.notification {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    padding: 1rem 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 8px 24px var(--color-shadow);
+    font-weight: 600;
+    z-index: 9999;
+    transform: translateX(400px);
+    transition: transform 0.3s ease;
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification-success {
+    background-color: #10b981;
+    color: white;
+}
+
+.notification-error {
+    background-color: #ef4444;
+    color: white;
+}
+
+.notification-info {
+    background-color: var(--color-primary);
+    color: white;
+}

@@ -2,15 +2,13 @@
 // ADMIN.JS - Panel de administración
 // ========================================
 
-let db, auth;
-let unsubscribe;
+let adminDB, auth, unsubscribe;
 
 document.addEventListener('DOMContentLoaded', () => {
     window.firebaseDB.init();
-    db = window.firebaseDB.getDB();
+    adminDB = window.firebaseDB.getDB();
     auth = firebase.auth();
     
-    // Check if already logged in
     auth.onAuthStateChanged((user) => {
         if (user) {
             showAdminPanel();
@@ -20,22 +18,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     
-    // Login form
     const loginForm = document.getElementById('login-form');
-    if (loginForm) {
-        loginForm.addEventListener('submit', handleLogin);
-    }
+    if (loginForm) loginForm.addEventListener('submit', handleLogin);
     
-    // Logout
     const logoutBtn = document.getElementById('logout-btn');
-    if (logoutBtn) {
-        logoutBtn.addEventListener('click', handleLogout);
-    }
+    if (logoutBtn) logoutBtn.addEventListener('click', handleLogout);
 });
 
 async function handleLogin(e) {
     e.preventDefault();
-    
     const email = document.getElementById('admin-email').value;
     const password = document.getElementById('admin-password').value;
     
@@ -69,15 +60,11 @@ function showAdminPanel() {
 }
 
 function loadAdminQuestions() {
-    unsubscribe = db.collection('questions')
-        .orderBy('date', 'desc')
-        .onSnapshot((snapshot) => {
-            const questions = [];
-            snapshot.forEach((doc) => {
-                questions.push({ id: doc.id, ...doc.data() });
-            });
-            renderAdminQuestions(questions);
-        });
+    unsubscribe = adminDB.collection('questions').orderBy('date', 'desc').onSnapshot((snapshot) => {
+        const questions = [];
+        snapshot.forEach((doc) => questions.push({ id: doc.id, ...doc.data() }));
+        renderAdminQuestions(questions);
+    });
 }
 
 function renderAdminQuestions(questions) {
@@ -91,7 +78,6 @@ function renderAdminQuestions(questions) {
                 <span class="admin-date">${q.date?.toDate ? formatDate(q.date.toDate()) : ''}</span>
             </div>
             <p class="admin-q-text">${escapeHtml(q.question)}</p>
-            
             ${q.answer ? `
                 <div class="admin-answer-box">
                     <strong>Tu respuesta:</strong>
@@ -103,7 +89,6 @@ function renderAdminQuestions(questions) {
                     <button type="submit" class="btn btn-primary">Responder</button>
                 </form>
             `}
-            
             <button onclick="deleteQuestion('${q.id}')" class="btn-delete">Eliminar</button>
         </div>
     `).join('');
@@ -111,13 +96,11 @@ function renderAdminQuestions(questions) {
 
 async function handleAnswer(e, questionId) {
     e.preventDefault();
-    const textarea = e.target.querySelector('textarea');
-    const answer = textarea.value.trim();
-    
+    const answer = e.target.querySelector('textarea').value.trim();
     if (!answer) return;
     
     try {
-        await db.collection('questions').doc(questionId).update({
+        await adminDB.collection('questions').doc(questionId).update({
             answer: answer,
             answeredBy: 'ConectandoUsh',
             answeredAt: firebase.firestore.Timestamp.now()
@@ -131,9 +114,8 @@ async function handleAnswer(e, questionId) {
 
 async function deleteQuestion(questionId) {
     if (!confirm('¿Seguro que quieres eliminar esta pregunta?')) return;
-    
     try {
-        await db.collection('questions').doc(questionId).delete();
+        await adminDB.collection('questions').doc(questionId).delete();
         showNotification('Pregunta eliminada', 'success');
     } catch (error) {
         console.error('Error:', error);

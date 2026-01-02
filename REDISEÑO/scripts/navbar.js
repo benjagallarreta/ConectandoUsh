@@ -7,14 +7,12 @@ function initNavbar() {
     const navbarMenu = document.getElementById('navbar-menu');
     const navLinks = document.querySelectorAll('.nav-link');
 
-    // Toggle menú móvil
     if (mobileToggle && navbarMenu) {
         mobileToggle.addEventListener('click', () => {
             mobileToggle.classList.toggle('active');
             navbarMenu.classList.toggle('active');
         });
 
-        // Cerrar menú al hacer click en un enlace
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileToggle.classList.remove('active');
@@ -22,7 +20,6 @@ function initNavbar() {
             });
         });
 
-        // Cerrar menú al hacer click fuera
         document.addEventListener('click', (e) => {
             if (!mobileToggle.contains(e.target) && !navbarMenu.contains(e.target)) {
                 mobileToggle.classList.remove('active');
@@ -30,52 +27,33 @@ function initNavbar() {
             }
         });
     }
-
-    // Detectar sección activa al hacer scroll
-    initScrollSpy();
+    
+    // Marcar enlace activo basado en la URL actual
+    markActiveLink();
 }
 
-// ========================================
-// SCROLL SPY - Resaltar enlace activo
-// ========================================
-
-function initScrollSpy() {
-    const sections = document.querySelectorAll('section[id]');
+function markActiveLink() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const currentHash = window.location.hash;
     const navLinks = document.querySelectorAll('.nav-link');
-
-    function highlightNavLink() {
-        let scrollPosition = window.scrollY + 100; // Offset para activar antes
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
-
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                // Remover clase active de todos los enlaces
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                });
-
-                // Agregar clase active al enlace correspondiente
-                const activeLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-                if (activeLink) {
-                    activeLink.classList.add('active');
-                }
-            }
-        });
-
-        // Si estamos en el top de la página, activar "Inicio"
-        if (window.scrollY < 100) {
-            navLinks.forEach(link => link.classList.remove('active'));
-            const homeLink = document.querySelector('.nav-link[href="#inicio"]');
-            if (homeLink) {
-                homeLink.classList.add('active');
-            }
+    
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        const href = link.getAttribute('href');
+        
+        // Si es la página de comunidad
+        if (href === 'comunidad.html' && currentPage === 'comunidad.html') {
+            link.classList.add('active');
         }
-    }
-
-    // Ejecutar al cargar y al hacer scroll
-    window.addEventListener('scroll', highlightNavLink);
-    highlightNavLink(); // Ejecutar inmediatamente
+        // Si es index.html o una sección con hash
+        else if (href === 'index.html' && currentPage === 'index.html' && !currentHash) {
+            link.classList.add('active');
+        }
+        else if (href.includes('#') && href.endsWith(currentHash)) {
+            link.classList.add('active');
+        }
+    });
 }
+
+// Actualizar enlace activo cuando cambia el hash
+window.addEventListener('hashchange', markActiveLink);

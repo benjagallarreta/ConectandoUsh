@@ -248,3 +248,19 @@
         background-color: rgba(183, 43, 204, 0.1);
     }
 }
+
+/* Active state para el enlace actual */
+.nav-link.active {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.nav-link.active::after {
+    width: 100%;
+}
+
+@media (max-width: 767px) {
+    .nav-link.active {
+        background-color: rgba(183, 43, 204, 0.1);
+    }
+}

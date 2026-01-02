@@ -16,16 +16,12 @@
     <link rel="stylesheet" href="../styles/community.css">
     <link rel="stylesheet" href="../styles/footer.css">
 </head>
- <!-- Scripts de Firebase (CDN) -->
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
     
     <!-- Tus scripts -->
-    <script src="../scripts/firebase-config.js"></script>
     <script src="../scripts/main.js"></script>
     <script src="../scripts/theme.js"></script>
     <script src="../scripts/navbar.js"></script>
-    <script src="../scripts/community.js"></script>
+    
 <body>
     <!-- Navbar -->
     <div id="navbar-container"></div>
@@ -221,45 +217,6 @@
             </div>
             
             <p class="clients-more">✨ ¡Y muchos más!</p>
-        </div>
-    </section>
-
-    <!-- Community Section -->
-    <section id="comunidad" class="community-section">
-        <div class="container-small">
-            <div class="section-header">
-                <h2>💬 Comunidad y Consultas</h2>
-                <p class="section-subtitle">Pregunta y aprende con otros usuarios</p>
-                <div class="section-divider"></div>
-            </div>
-            
-            <!-- Formulario -->
-            <div class="community-form-card">
-                <h3 class="form-title">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                    Nueva Consulta
-                </h3>
-                
-                <form id="question-form">
-                    <div class="form-group">
-                        <label>Tu Nombre</label>
-                        <input type="text" id="user-name" placeholder="Ej: Juan Pérez" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Tu Pregunta</label>
-                        <textarea id="user-question" rows="4" placeholder="¿Qué necesitas saber?" required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary btn-full">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                        Enviar Pregunta
-                    </button>
-                </form>
-            </div>
-            
-            <!-- Lista de Preguntas -->
-            <div id="questions-list" class="questions-list"></div>
         </div>
     </section>
 
