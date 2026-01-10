@@ -30,6 +30,9 @@ function initNavbar() {
     
     // Marcar enlace activo basado en la URL actual
     markActiveLink();
+    
+    // Actualizar enlace activo cuando cambia el hash
+    window.addEventListener('hashchange', markActiveLink);
 }
 
 function markActiveLink() {
@@ -41,19 +44,26 @@ function markActiveLink() {
         link.classList.remove('active');
         const href = link.getAttribute('href');
         
-        // Si es la página de comunidad
-        if (href === 'comunidad.html' && currentPage === 'comunidad.html') {
-            link.classList.add('active');
+        // Si estamos en comunidad.html
+        if (currentPage === 'comunidad.html') {
+            if (href === 'comunidad.html') {
+                link.classList.add('active');
+            }
         }
-        // Si es index.html o una sección con hash
-        else if (href === 'index.html' && currentPage === 'index.html' && !currentHash) {
-            link.classList.add('active');
-        }
-        else if (href.includes('#') && href.endsWith(currentHash)) {
-            link.classList.add('active');
+        // Si estamos en index.html
+        else if (currentPage === 'index.html' || currentPage === '') {
+            // Si hay hash en la URL
+            if (currentHash) {
+                // Marcar activo el enlace que coincida con el hash
+                if (href.includes(currentHash)) {
+                    link.classList.add('active');
+                }
+            } else {
+                // Si no hay hash, marcar "Inicio" como activo
+                if (href === 'index.html') {
+                    link.classList.add('active');
+                }
+            }
         }
     });
 }
-
-// Actualizar enlace activo cuando cambia el hash
-window.addEventListener('hashchange', markActiveLink);
