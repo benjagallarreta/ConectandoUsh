@@ -10,8 +10,16 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(response => response.text())
             .then(data => {
                 navbarContainer.innerHTML = data;
-                // Inicializar funcionalidad del navbar después de cargarlo
-                initNavbar();
+                
+                // Inicializar funcionalidad del navbar
+                if (typeof initNavbar === 'function') {
+                    initNavbar();
+                }
+                
+                // RE-inicializar el theme toggle después de cargar el navbar
+                if (typeof initThemeToggle === 'function') {
+                    initThemeToggle();
+                }
             })
             .catch(error => console.error('Error al cargar navbar:', error));
     }
@@ -28,17 +36,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Smooth scroll para los enlaces
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+    document.addEventListener('click', (e) => {
+        const anchor = e.target.closest('a[href^="#"]');
+        if (anchor) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const target = document.querySelector(anchor.getAttribute('href'));
             if (target) {
                 target.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
                 });
             }
-        });
+        }
     });
 
     // Efecto de scroll en navbar
