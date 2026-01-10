@@ -35,8 +35,18 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch(error => console.error('Error al cargar footer:', error));
     }
 
-    // Smooth scroll para los enlaces
+    // Smooth scroll para los enlaces - PERO NO para botones
     document.addEventListener('click', (e) => {
+        // Ignorar si es un botón o está dentro de un botón
+        if (e.target.tagName === 'BUTTON' || e.target.closest('button')) {
+            return;
+        }
+        
+        // Ignorar si es el theme toggle o está dentro de él
+        if (e.target.id === 'theme-toggle' || e.target.closest('#theme-toggle')) {
+            return;
+        }
+        
         const anchor = e.target.closest('a[href^="#"]');
         if (anchor) {
             e.preventDefault();
